@@ -50,12 +50,68 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
 let g:indent_guides_guide_size = 1
+
 "minibufexpl
-nmap \b :MBEToggle<CR>
 nmap <C-n> :MBEbn<CR>
 nmap <C-b> :MBEbp<CR>
 nmap <C-x> :MBEbd<CR>
 let g:miniBufExplStatusLineText="minibufexpl"
+
+"slimux
+nmap <C-t>t :SlimuxShellPrompt
+vmap <C-t>s :SlimuxREPLSendSelection
+vmap <C-t>l :SlimuxREPLSendLine
+vmap <C-t>p :SlimuxREPLSendParagraph
+
+"sexp
+nmap <Space> ,
+let g:sexp_mappings = {
+    \ 'sexp_outer_list':                'af',
+    \ 'sexp_inner_list':                'if',
+    \ 'sexp_outer_top_list':            'aF',
+    \ 'sexp_inner_top_list':            'iF',
+    \ 'sexp_outer_string':              'as',
+    \ 'sexp_inner_string':              'is',
+    \ 'sexp_outer_element':             'ae',
+    \ 'sexp_inner_element':             'ie',
+    \ 'sexp_move_to_prev_bracket':      '(',
+    \ 'sexp_move_to_next_bracket':      ')',
+    \ 'sexp_move_to_prev_element_head': ',b',
+    \ 'sexp_move_to_next_element_head': ',w',
+    \ 'sexp_move_to_prev_element_tail': ',B',
+    \ 'sexp_move_to_next_element_tail': ',W',
+    \ 'sexp_move_to_prev_top_element':  ',[[',
+    \ 'sexp_move_to_next_top_element':  ',]]',
+    \ 'sexp_select_prev_element':       ',[e',
+    \ 'sexp_select_next_element':       ',]e',
+    \ 'sexp_indent':                    ',=',
+    \ 'sexp_indent_top':                ',-',
+    \ 'sexp_round_head_wrap_list':      ',lw',
+    \ 'sexp_round_tail_wrap_list':      ',lW',
+    \ 'sexp_square_head_wrap_list':     ',l[',
+    \ 'sexp_square_tail_wrap_list':     ',l]',
+    \ 'sexp_curly_head_wrap_list':      ',l{',
+    \ 'sexp_curly_tail_wrap_list':      ',l}',
+    \ 'sexp_round_head_wrap_element':   ',ew',
+    \ 'sexp_round_tail_wrap_element':   ',eW',
+    \ 'sexp_square_head_wrap_element':  ',e[',
+    \ 'sexp_square_tail_wrap_element':  ',e]',
+    \ 'sexp_curly_head_wrap_element':   ',e{',
+    \ 'sexp_curly_tail_wrap_element':   ',e}',
+    \ 'sexp_insert_at_list_head':       ',ih',
+    \ 'sexp_insert_at_list_tail':       ',it',
+    \ 'sexp_splice_list':               ',@',
+    \ 'sexp_raise_list':                ',rl',
+    \ 'sexp_raise_element':             ',re',
+    \ 'sexp_swap_list_backward':        ',sl',
+    \ 'sexp_swap_list_forward':         ',sL',
+    \ 'sexp_swap_element_backward':     ',se',
+    \ 'sexp_swap_element_forward':      ',sE',
+    \ 'sexp_emit_head_element':         ',eh',
+    \ 'sexp_emit_tail_element':         ',et',
+    \ 'sexp_capture_prev_element':      ',ch',
+    \ 'sexp_capture_next_element':      ',ct'
+    \ }
 
 """"""""""""
 "MAPPINGS
@@ -71,7 +127,7 @@ map <silent> <A-Right> :wincmd l<CR>
 
 "It's clumsy to insert just a single character from normal mode, this is
 "better
-map <Space> i_<Esc>r
+"map <Space> i_<Esc>r
 
 """"""""""""
 "COMMANDS
