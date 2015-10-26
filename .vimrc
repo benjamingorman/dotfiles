@@ -19,6 +19,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-classpath'
+Plugin 'epeli/slimux'
 
 call vundle#end()
 filetype plugin indent on
@@ -131,6 +137,9 @@ endfu
 """"""""""""
 "FILETYPES
 """"""""""""
+syntax enable
+au Filetype clojure :RainbowParenthesesToggle
+
 "Syntax highlighting for markdown
 autocmd BufNewFile,BufRead *.md set spell
 
@@ -167,7 +176,6 @@ highlight Folded ctermbg=black ctermfg=red
 """"""""""""
 "GENERAL
 """"""""""""
-syntax enable
 set number
 set ruler
 set title
