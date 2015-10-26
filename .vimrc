@@ -24,7 +24,7 @@ Plugin 'tpope/vim-salve'
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-classpath'
-Plugin 'epeli/slimux'
+Plugin 'Normangorman/slimux'
 
 call vundle#end()
 filetype plugin indent on
