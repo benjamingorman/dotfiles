@@ -5,6 +5,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
@@ -21,26 +22,24 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
 Plug 'vim-scripts/mru.vim'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 call deoplete#enable()
 
 let mapleader="`"
 let g:deoplete#sources#jedi#python_path = "/usr/local/bin/python3"
-"autocmd CompleteDone * silent! pclose! " close deoplete preview
-
-" If text is selected, save it in the v buffer and send that buffer it to tmux
-vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
+autocmd CompleteDone * silent! pclose! " close deoplete preview
 
 nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>q :q<CR>
 nmap <leader>w :w<CR>
-nmap <leader>t :terminal<CR>
 nmap <leader>g :Goyo<CR>
 nmap <leader>f :MRU<CR>
+nmap <leader>o :Econf<CR>
+nmap <leader>p :PlugInstall<CR>
+nmap <leader>t :TagbarToggle<CR>
 nmap <F5> :GoTest<CR>
-" exit terminal by pressing Esc 
-map <Leader>vp :VimuxPromptCommand<CR>
 map <silent> <leader>h :wincmd h<CR>
 map <silent> <leader>j :wincmd j<CR>
 map <silent> <leader>k :wincmd k<CR>
@@ -50,20 +49,12 @@ map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
 map <silent> <C-l> :wincmd l<CR>
 
-
 """ PLUGINS
 " NERDTree
 let NERDTreeShowHidden=1
 
-
 " Goyo
 let g:goyo_width = 100
-
-" Vimux
-function! VimuxSlime()
-    call VimuxSendText(@v)
-    call VimuxSendKeys("Enter")
-endfunction
 
 " lightline
 let g:lightline = {
@@ -114,16 +105,18 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
+""" COMMANDS
 command! Econf sp ~/.config/nvim/init.vim
 command! Ebash sp ~/.bash_profile
 command! Etmux sp ~/.tmux.conf
 command! So source %
 
+""" SETTINGS
+set t_Co=256
 set background=dark
 colorscheme gruvbox
 filetype plugin on
 filetype indent on
-set t_Co=256
 set encoding=utf8
 set fillchars=vert:\ 
 set autoindent
