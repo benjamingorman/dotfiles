@@ -1,28 +1,29 @@
 call plug#begin('~/.vim/plugged')
 
+" Plug 'benmills/vimux'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'fatih/vim-go'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/neosnippet.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'majutsushi/tagbar'
+Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-startify'
+Plug 'morhetz/gruvbox'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
+Plug 'Shougo/neosnippet.vim'
 Plug 'tpope/vim-commentary'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-Plug 'python-mode/python-mode', {'branch': 'develop'}
-Plug 'fatih/vim-go'
-Plug 'justinmk/vim-sneak'
-Plug 'Yggdroot/indentLine'
-Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
-Plug 'mhinz/vim-signify'
-Plug 'airblade/vim-gitgutter'
-Plug 'mhinz/vim-startify'
-Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'vim-scripts/mru.vim'
-Plug 'majutsushi/tagbar'
+Plug 'Yggdroot/indentLine'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+"Plug 'google/vim-jsonnet'
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 call deoplete#enable()
@@ -40,6 +41,8 @@ nmap <leader>o :Econf<CR>
 nmap <leader>p :PlugInstall<CR>
 nmap <leader>t :TagbarToggle<CR>
 nmap <F5> :GoTest<CR>
+vmap <leader>c "*y
+nmap <leader>v "*p
 map <silent> <leader>h :wincmd h<CR>
 map <silent> <leader>j :wincmd j<CR>
 map <silent> <leader>k :wincmd k<CR>
@@ -48,6 +51,8 @@ map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
 map <silent> <C-l> :wincmd l<CR>
+nmap <space> /
+nmap <C-space> ?
 
 """ PLUGINS
 " NERDTree
@@ -110,6 +115,7 @@ command! Econf sp ~/.config/nvim/init.vim
 command! Ebash sp ~/.bash_profile
 command! Etmux sp ~/.tmux.conf
 command! So source %
+command! Snips NeoSnippetEdit
 
 """ SETTINGS
 set t_Co=256
@@ -134,6 +140,7 @@ set expandtab
 set so=5 " causes the cursor to stay at least N lines above the bottom when scrolling
 "set fillchars=vert:\ 
 set nohlsearch
+set conceallevel=0 " disable json quote hiding in json-vim
 
 " NOTES
 " z., zz, zt, zb allow you to jump the cursor around
