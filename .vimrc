@@ -7,6 +7,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" change the <leader> key to `. This is nice on Macs.
+" <leader> is a prefix for many keybindings.
+let mapleader="`"
+
 
 """ PLUGINS
 call plug#begin('~/.vim/plugged')
@@ -32,9 +36,6 @@ nmap <leader>e :NERDTreeToggle<CR>
 
 
 """ KEY BINDINGS
-" change the <leader> key to `. This is nice on Macs.
-let mapleader="`"
-
 " use <leader>q to quit
 nmap <leader>q :q<CR> 
 
